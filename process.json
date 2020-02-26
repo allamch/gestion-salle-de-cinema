@@ -1,19 +1,19 @@
 {
   "apps": [
     {
-      "name": "pm2-java",
+      "name": "allam",
 
       "cwd": ".",
 
       "script": "/usr/bin/java",
 
-      "args": ["-jar", "/home/ubuntu/gestion-salle-de-cinema"],
+      "args": ["-jar", "/home/ubuntu/gestion-salle-de-cinema/webcinema-0.0.1-SNAPSHOT.jar"],
 
-      "watch": ["/home/userx / TestPM2 / App.jar"],
+      "watch": ["/home/ubuntu/gestion-salle-de-cinema/webcinema-0.0.1-SNAPSHOT.jar"],
 
       "node_args": [],
 
-      "log_date_format": "YYYY - MM - DD HH: mm Z",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
 
       "exec_interpreter": "",
 
