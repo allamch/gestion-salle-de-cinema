@@ -1,5 +1,6 @@
 package com.cinema.webcinema.entite;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,10 +23,12 @@ private Long idProjection;
 private Date dateProjection;
 private double prixProjection;
 @ManyToOne
+@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 private Salle salle;
 @ManyToOne
 private  Film film;
 @OneToMany(mappedBy = "projection")
+@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 private Collection<Ticket> tickets;
 @ManyToOne
 private  Seance seance;

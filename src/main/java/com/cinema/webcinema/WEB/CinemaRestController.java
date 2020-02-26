@@ -8,6 +8,7 @@ import com.cinema.webcinema.entite.Ticket;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
@@ -39,7 +40,8 @@ public List <Film> listFilm(){
         return filmRepository.findAll();
 }
 
-    @PostMapping("/payerTickets")
+ /*   @PostMapping("/payerTickets")
+    @Transactional
     public  List<Ticket> payerTickets(@RequestBody TicketForm ticketForm){
 List<Ticket> ticketList = new ArrayList<>();
        ticketForm.getTickets().forEach(idTicket->{
@@ -54,7 +56,7 @@ List<Ticket> ticketList = new ArrayList<>();
 
 return ticketList;
     }
-
+*/
 
 }
 @Data

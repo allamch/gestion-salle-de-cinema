@@ -62,7 +62,7 @@ public class CinemaInitServiceImplimentation  implements ICinemaInitService{
     @Override
     public void initSalles() {
        cinemaRepository.findAll().forEach(cinema -> {
-for(int i=0;i<cinema.getNombreSalles();i++){
+for(int i=0;i<10;i++){
     Salle salle = new Salle();
     salle.setNomSalle("salle"+(i+1));
     salle.setCinema(cinema);
@@ -78,9 +78,9 @@ salleRepository.save(salle);
 
                 DateFormat dateFormat=  new SimpleDateFormat("HH:mm");
                 Stream.of("12:00","15:00","17:00","19:00","21:00").forEach(s -> {
-
+                    Seance seance=new Seance();
                     try {
-                        Seance seance=new Seance();
+
                 seance.setHeureDebut(dateFormat.parse(s) );
                 seanceRepository.save(seance);
 
@@ -95,14 +95,13 @@ salleRepository.save(salle);
     @Override
     public void initPlaces() {
         salleRepository.findAll().forEach(salle -> {
-            for (int i=0; i<salle.getNombrePlace();i++ )
-            {
+            for (int i=0; i<5;i++ ) {
                 Place place = new Place();
-                place.setNumPlace(i+1);
+                place.setNumPlace(i + 1);
                 place.setSalle(salle);
-                placeRepository.save(place);
-            }
-        });
+
+                placeRepository.save(place);}
+            });
 
     }
 
@@ -156,6 +155,7 @@ villeRepository.findAll().forEach(ville -> {
 projectionRepository.findAll().forEach(projection ->
 {
   projection.getSalle().getPlaces().forEach(place -> {
+
       Ticket ticket = new Ticket();
       ticket.setPlace(place);
       ticket.setPrixAchat(projection.getPrixProjection());
